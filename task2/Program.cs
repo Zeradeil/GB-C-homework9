@@ -6,7 +6,7 @@
 int M = Readnum("начало");
 int N = Readnum("конец");
 int sum = 0;
-System.Console.WriteLine(SumNumbers(M, N, sum));
+System.Console.WriteLine($"Сумма натуральных элементов в промежутке от {M} до {N} равна {SumNumbers(M, N, sum)}");
 
 
 int Readnum(string massage)
@@ -17,20 +17,11 @@ int Readnum(string massage)
 
 int SumNumbers(int M, int N, int sum)
 {
-
-    if (M % 2 != 0)
+    if (N >= M)
     {
-        M += 1;
+        return SumNumbers(M + 1, N, sum + M);
     }
-    if (N < M)
-    {
-        return 0;
-    }
-    sum += M;
-    System.Console.Write($"{M} ");
-    M += 2;
-    SumNumbers(M, N, sum);
-
-    return sum += M;
+    System.Console.WriteLine();
+    return sum;
 }
 
